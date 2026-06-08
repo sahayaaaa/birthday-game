@@ -91,24 +91,46 @@
     </div>
 
     <!-- LEVEL 2 -->
-    <div id="reasons" class="screen">
+<div id="envelope" class="screen">
 
-        <div class="card">
+    <div class="card">
 
-            <h2>💌 19 Reasons Why I Like You</h2>
+        <h1>💌</h1>
 
-            <p>
-                Are you ready?
-            </p>
+        <h2>A Letter For You</h2>
 
-            <button onclick="startReasons()">
-                See Reasons ❤️
-            </button>
+        <p>
+            Open the envelope to see
+            19 reasons why I like you.
+        </p>
 
-        </div>
+        <button onclick="openEnvelope()">
+            Open Envelope ❤️
+        </button>
 
     </div>
 
+</div>
+<!-- LEVEL 3 -->
+<div id="reasons" class="screen">
+
+    <div class="card">
+
+        <h2 id="reason-title">
+            19 Reasons Why I Like You ❤️
+        </h2>
+
+        <p id="reason-text">
+            Click below to begin.
+        </p>
+
+        <button onclick="nextReason()">
+            Next Reason ❤️
+        </button>
+
+    </div>
+
+</div>
 <script>
 
 function hideAllScreens() {
@@ -117,10 +139,18 @@ function hideAllScreens() {
         .forEach(screen => {
             screen.classList.remove("active");
         });
-
 }
 
-function goToReasons() {
+function goToEnvelope() {
+
+    hideAllScreens();
+
+    document
+        .getElementById("envelope")
+        .classList.add("active");
+}
+
+function openEnvelope() {
 
     hideAllScreens();
 
@@ -129,10 +159,62 @@ function goToReasons() {
         .classList.add("active");
 }
 
-function startReasons() {
+let reasonIndex = -1;
 
-    alert("Next step tomorrow 😭💙");
+const reasons = [
 
+"You're cute in a way that always makes me smile.",
+
+"You're one of the kindest people I've ever met.",
+
+"You never leave people on seen because you genuinely care.",
+
+"I love how much you love and respect your mom.",
+
+"The way you talk is adorable.",
+
+"Your voice can instantly make my day better.",
+
+"I melt every time you sing.",
+
+"I feel comfortable with you.",
+
+"You make me feel loved even through a screen.",
+
+"You're always there when I need you.",
+
+"I love your silly tone when you talk.",
+
+"Your meme references never fail to make me laugh.",
+
+"You always know how to comfort me.",
+
+"You're patient with me.",
+
+"You never judge me.",
+
+"You have such a gentle heart.",
+
+"Being with you feels safe.",
+
+"You're the biggest green flag I've ever met.",
+
+"Out of all the reasons, my favorite one is simply that you're my cutieee ❤️"
+
+];
+
+function nextReason() {
+
+    reasonIndex++;
+
+    if (reasonIndex < reasons.length) {
+
+        document.getElementById("reason-title").innerText =
+            "💌 Reason " + (reasonIndex + 1) + " of 19";
+
+        document.getElementById("reason-text").innerText =
+            reasons[reasonIndex];
+    }
 }
 
 </script>
