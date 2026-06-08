@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Thrii ❤️</title>
 
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                to bottom,
+                #0f172a,
+                #172554,
+                #1e293b
+            );
+
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .screen {
+            display: none;
+            text-align: center;
+            max-width: 700px;
+            width: 90%;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            padding: 35px;
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            background: #f8c8dc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LEVEL 1 -->
+    <div id="home" class="screen active">
+        <div class="card">
+
+            <h1>🎂 Happy 19th Birthday ❤️</h1>
+
+            <p>
+                Welcome to a little corner of the internet
+                made just for you, Thrii.
+            </p>
+
+            <p>
+                I made something special for you.
+            </p>
+
+            <button onclick="goToReasons()">
+                Start Adventure ❤️
+            </button>
+
+        </div>
+    </div>
+
+    <!-- LEVEL 2 -->
+    <div id="reasons" class="screen">
+
+        <div class="card">
+
+            <h2>💌 19 Reasons Why I Like You</h2>
+
+            <p>
+                Are you ready?
+            </p>
+
+            <button onclick="startReasons()">
+                See Reasons ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+<script>
+
+function hideAllScreens() {
+
+    document.querySelectorAll(".screen")
+        .forEach(screen => {
+            screen.classList.remove("active");
+        });
+
+}
+
+function goToReasons() {
+
+    hideAllScreens();
+
+    document
+        .getElementById("reasons")
+        .classList.add("active");
+}
+
+function startReasons() {
+
+    alert("Next step tomorrow 😭💙");
+
+}
+
+</script>
+
+</body>
+</html>
