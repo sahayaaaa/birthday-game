@@ -136,6 +136,30 @@
 
     </div>
 </div>
+    <!-- MEMORY -->
+<div id="memory" class="screen">
+
+    <div class="card">
+
+        <h2 id="memory-title">
+            📸 Our Memory Gallery
+        </h2>
+
+        <img id="memory-image"
+             src=""
+             style="width:100%; max-width:500px; border-radius:20px;">
+
+        <p id="memory-text">
+            Click below to begin.
+        </p>
+
+        <button onclick="nextMemory()">
+            Next Memory ❤️
+        </button>
+
+    </div>
+
+</div>
 <script>
 
 function hideAllScreens() {
@@ -217,6 +241,15 @@ function nextReason() {
         document.getElementById("song-text").innerText =
             songs[songIndex].text;
     }
+        else {
+
+    hideAllScreens();
+
+    document
+        .getElementById("memory")
+        .classList.add("active");
+
+}
 }
 let songIndex = -1;
 
@@ -234,6 +267,47 @@ const songs = [
     text: "Because it reminds me of us, our memories, and everything we share."
 }
 ];
+    let memoryIndex = -1;
+
+const memories = [
+
+{
+    image: "photo1.jpeg",
+    text: "🌸 One of my favorite memories."
+},
+
+{
+    image: "photo2.jpeg",
+    text: "💙 A moment I'll always remember."
+},
+
+{
+    image: "photo3.jpeg",
+    text: "😊 This always makes me smile."
+},
+
+{
+    image: "photo4.jpeg",
+    text: "❤️ My favorite."
+}
+
+];
+    function nextMemory() {
+
+    memoryIndex++;
+
+    if (memoryIndex < memories.length) {
+
+        document.getElementById("memory-title").innerText =
+            "📸 Memory " + (memoryIndex + 1);
+
+        document.getElementById("memory-image").src =
+            memories[memoryIndex].image;
+
+        document.getElementById("memory-text").innerText =
+            memories[memoryIndex].text;
+    }
+}
 </script>
 
 </body>
