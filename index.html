@@ -10,14 +10,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-            background: linear-gradient(
-                to bottom,
-                #0f172a,
-                #172554,
-                #1e293b
-            );
-
+            background: linear-gradient(to bottom, #0f172a, #172554, #1e293b);
             color: white;
             font-family: Arial, sans-serif;
         }
@@ -62,145 +55,110 @@
             cursor: pointer;
             font-size: 16px;
             background: #f8c8dc;
+            color: #1e293b;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- LEVEL 1 -->
+    <!-- HOME -->
     <div id="home" class="screen active">
         <div class="card">
-
             <h1>🎂 Happy 19th Birthday ❤️</h1>
 
             <p>
-                Welcome to a little corner of the internet
-                made just for you, Thrii.
+                Welcome to a little corner of the internet made just for you, Thrii.
             </p>
 
             <p>
                 I made something special for you.
             </p>
 
-            <button onclick="goToReasons()">
+            <button onclick="goToEnvelope()">
                 Start Adventure ❤️
+            </button>
+        </div>
+    </div>
+
+    <!-- ENVELOPE -->
+    <div id="envelope" class="screen">
+        <div class="card">
+
+            <h1>💌</h1>
+
+            <h2>A Letter For You</h2>
+
+            <p>
+                Open the envelope to see 19 reasons why I like you.
+            </p>
+
+            <button onclick="openEnvelope()">
+                Open Envelope ❤️
             </button>
 
         </div>
     </div>
 
-    <!-- LEVEL 2 -->
-<div id="envelope" class="screen">
+    <!-- REASONS -->
+    <div id="reasons" class="screen">
+        <div class="card">
 
-    <div class="card">
+            <h2 id="reason-title">
+                19 Reasons Why I Like You ❤️
+            </h2>
 
-        <h1>💌</h1>
+            <p id="reason-text">
+                Click below to begin.
+            </p>
 
-        <h2>A Letter For You</h2>
+            <button onclick="nextReason()">
+                Next Reason ❤️
+            </button>
 
-        <p>
-            Open the envelope to see
-            19 reasons why I like you.
-        </p>
-
-        <button onclick="openEnvelope()">
-            Open Envelope ❤️
-        </button>
-
+        </div>
     </div>
 
-</div>
-<!-- LEVEL 3 -->
-<div id="reasons" class="screen">
-
-    <div class="card">
-
-        <h2 id="reason-title">
-            19 Reasons Why I Like You ❤️
-        </h2>
-
-        <p id="reason-text">
-            Click below to begin.
-        </p>
-
-        <button onclick="nextReason()">
-            Next Reason ❤️
-        </button>
-
-    </div>
-
-</div>
 <script>
 
 function hideAllScreens() {
-
-    document.querySelectorAll(".screen")
-        .forEach(screen => {
-            screen.classList.remove("active");
-        });
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
 }
 
 function goToEnvelope() {
-
     hideAllScreens();
-
-    document
-        .getElementById("envelope")
-        .classList.add("active");
+    document.getElementById("envelope").classList.add("active");
 }
 
 function openEnvelope() {
-
     hideAllScreens();
-
-    document
-        .getElementById("reasons")
-        .classList.add("active");
+    document.getElementById("reasons").classList.add("active");
 }
 
 let reasonIndex = -1;
 
 const reasons = [
-
-"You're cute in a way that always makes me smile.",
-
-"You're one of the kindest people I've ever met.",
-
-"You never leave people on seen because you genuinely care.",
-
-"I love how much you love and respect your mom.",
-
-"The way you talk is adorable.",
-
-"Your voice can instantly make my day better.",
-
-"I melt every time you sing.",
-
-"I feel comfortable with you.",
-
-"You make me feel loved even through a screen.",
-
-"You're always there when I need you.",
-
-"I love your silly tone when you talk.",
-
-"Your meme references never fail to make me laugh.",
-
-"You always know how to comfort me.",
-
-"You're patient with me.",
-
-"You never judge me.",
-
-"You have such a gentle heart.",
-
-"Being with you feels safe.",
-
-"You're the biggest green flag I've ever met.",
-
-"Out of all the reasons, my favorite one is simply that you're my cutieee ❤️"
-
+    "You're cute in a way that always makes me smile.",
+    "You're one of the kindest people I've ever met.",
+    "You never leave people on seen because you genuinely care.",
+    "I love how much you love and respect your mom.",
+    "The way you talk is adorable.",
+    "Your voice can instantly make my day better.",
+    "I melt every time you sing.",
+    "I feel comfortable with you.",
+    "You make me feel loved even through a screen.",
+    "You're always there when I need you.",
+    "I love your silly tone when you talk.",
+    "Your meme references never fail to make me laugh.",
+    "You always know how to comfort me.",
+    "You're patient with me.",
+    "You never judge me.",
+    "You have such a gentle heart.",
+    "Being with you feels safe.",
+    "You're the biggest green flag I've ever met.",
+    "Out of all the reasons, my favorite one is simply that you're my cutieee ❤️"
 ];
 
 function nextReason() {
@@ -214,6 +172,10 @@ function nextReason() {
 
         document.getElementById("reason-text").innerText =
             reasons[reasonIndex];
+    }
+
+    if (reasonIndex === reasons.length - 1) {
+        alert("🎵 Songs section coming next!");
     }
 }
 
