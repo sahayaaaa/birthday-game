@@ -61,6 +61,9 @@
 </head>
 
 <body>
+    <audio id="bgMusic" loop>
+    <source src="goldenbrown.mp3.mpeg" type="audio/mpeg">
+</audio>
 
     <!-- HOME -->
     <div id="home" class="screen active">
@@ -209,10 +212,14 @@ function hideAllScreens() {
 }
 
 function goToEnvelope() {
-    hideAllScreens();
-    document.getElementById("envelope").classList.add("active");
-}
 
+    document.getElementById("bgMusic").play();
+
+    hideAllScreens();
+
+    document.getElementById("envelope")
+        .classList.add("active");
+}
 function openEnvelope() {
     hideAllScreens();
     document.getElementById("reasons").classList.add("active");
