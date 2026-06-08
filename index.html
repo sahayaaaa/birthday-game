@@ -199,6 +199,24 @@
         </p>
 
         <h2>🎂</h2>
+<button onclick="showEndCard()">
+    Finish ❤️
+</button> 
+    </div>
+
+</div>
+    <!-- END CARD -->
+<div id="endcard" class="screen">
+
+    <div class="card">
+
+        <h1>❤️</h1>
+
+        <h2>With Love,</h2>
+
+        <p>
+            Sahaya
+        </p>
 
     </div>
 
@@ -363,6 +381,14 @@ const memories = [
             .getElementById("final")
             .classList.add("active");
     }
+}
+    function showEndCard() {
+
+    hideAllScreens();
+
+    document
+        .getElementById("endcard")
+        .classList.add("active");
 }
 </script>
 
