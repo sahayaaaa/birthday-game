@@ -118,7 +118,24 @@
 
         </div>
     </div>
+<!-- SONGS -->
+<div id="songs" class="screen">
+    <div class="card">
 
+        <h2 id="song-title">
+            🎵 Songs That Remind Me Of You
+        </h2>
+
+        <p id="song-text">
+            Click below to begin.
+        </p>
+
+        <button onclick="nextSong()">
+            Next Song ❤️
+        </button>
+
+    </div>
+</div>
 <script>
 
 function hideAllScreens() {
@@ -175,10 +192,48 @@ function nextReason() {
     }
 
     if (reasonIndex === reasons.length - 1) {
-        alert("🎵 Songs section coming next!");
+
+    setTimeout(() => {
+
+        hideAllScreens();
+
+        document
+            .getElementById("songs")
+            .classList.add("active");
+
+    }, 1000);
+}
+    
+}
+    function nextSong() {
+
+    songIndex++;
+
+    if (songIndex < songs.length) {
+
+        document.getElementById("song-title").innerText =
+            songs[songIndex].title;
+
+        document.getElementById("song-text").innerText =
+            songs[songIndex].text;
     }
 }
+let songIndex = -1;
 
+const songs = [
+{
+    title: "🎵 Golden Brown",
+    text: "Because it's basically your theme song. Not just for me—anyone who knows you would think of you when they hear it."
+},
+{
+    title: "🎵 Can't Help Falling In Love",
+    text: "This song will always remind me of your confession and that special moment."
+},
+{
+    title: "🎵 Naan Un",
+    text: "Because it reminds me of us, our memories, and everything we share."
+}
+];
 </script>
 
 </body>
